@@ -1,4 +1,6 @@
 import SearchFormComp from "@/components/SearchFormComp";
+import StartUpCards from "@/components/StartUpCards";
+import { posts } from "@/lib/dommyData";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query?: string}> }) {
   const query = (await searchParams).query;
@@ -15,6 +17,27 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         </p>
 
         <SearchFormComp query={query} />
+      </section>
+
+      <section className="px-6 py-10 max-w-7xl mx-auto">
+        <p className="text-4xl font-bold">
+          {query ? (
+            <>
+              Search result for: <span className="text-pink-700">{query}</span>
+            </>
+          ) : (
+            "All Startups"
+          )}
+        </p>
+
+        <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
+          {posts?.length > 0 ? (
+            posts.map((post)=> (
+              <StartUpCards key={post._id} post={post} />
+            ))
+          ) : <p className="text-2xl font-normal">No Startups found</p>}
+        </ul>
+
       </section>
   </>
   );
