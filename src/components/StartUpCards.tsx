@@ -64,7 +64,7 @@ return (
                 />
 
             </Link>
-        </div>
+        </div> 
         
         <Link href={`/startup/${_id}`}>
             <p className="font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all">
@@ -85,5 +85,4 @@ return (
             </Button>
         </div>
     </li>
-)
-}
+)}
