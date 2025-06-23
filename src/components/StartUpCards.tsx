@@ -32,7 +32,7 @@ export default function StartUpCards({ post }: { post: StartUpTypeCard }) {
     } = post;      
 
 return (
-    <li className="group bg-white border-[5px] hover:border-pink-700 border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-500 hover:shadow-300 hover:bg-pink-500/70">
+    <li className="group bg-white border-[5px] hover:border-pink-700 border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-500 hover:shadow-300 hover:bg-pink-500/15 ">
         <div className="flex justify-between items-center">
             <p className="font-medium text-[16px] bg-primary-100 py-2 rounded-full group-hover:bg-white-100">
                 {formatDate(post._createAt)}

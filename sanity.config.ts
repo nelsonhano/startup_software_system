@@ -13,7 +13,7 @@ import { markdownSchema } from "sanity-plugin-markdown";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './src/sanity/env'
-import {schema} from './src/sanity/schemaTypes'
+import {schema} from './src/sanity/schemas'
 import {structure} from './src/sanity/structure'
 
 export default defineConfig({

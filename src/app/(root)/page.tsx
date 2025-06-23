@@ -1,9 +1,12 @@
 import SearchFormComp from "@/components/SearchFormComp";
 import StartUpCards from "@/components/StartUpCards";
-import { posts } from "@/lib/dommyData";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query?: string}> }) {
   const query = (await searchParams).query;
+
+  const posts = await client.fetch(STARTUPS_QUERY);
 
   return (
   <>
