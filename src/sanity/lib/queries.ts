@@ -1,14 +1,30 @@
 import { defineQuery } from "next-sanity";
 
-export const STARTUPS_QUERY = defineQuery(`*[_type == 'startup' && defined(slug.current)] 
-| order(_createdAt desc) {
+// src/sanity/lib/queries.ts
+export const STARTUPS_QUERY = `*[_type == "startup"]{
   _id,
-  _createdAt, 
-  title, 
-  slug, 
-  author -> { _id, name, image, bio }, 
-  category, 
-  description, 
-  image, 
-  views
-}`)
+  _type,
+  _createdAt,
+  _updatedAt,
+  _rev,
+  title,
+  slug,
+  views,
+  description,
+  category,
+  image,
+  pitch,
+  author->{
+    _id,
+    _type,
+    _createdAt,
+    _updatedAt,
+    _rev,
+    id,
+    name,
+    username,
+    email,
+    image,
+    bio
+  }
+}`;
