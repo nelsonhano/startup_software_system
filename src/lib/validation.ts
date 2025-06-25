@@ -16,3 +16,7 @@ export const formSchema = z.object({
     }),
     pitch: z.string().min(20)
 });
+
+export function parseServerActionResponse<T> (response: T) {
+    return JSON.parse(JSON.stringify(response));
+}

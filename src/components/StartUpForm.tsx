@@ -11,6 +11,7 @@ import { formSchema } from '@/lib/validation';
 import { Textarea } from "./ui/textarea";
 import { Button } from './ui/button';
 import { Input } from "./ui/input";
+import { createPitch } from "@/lib/actions";
 
 export default function StartUpForm() {
     const [error, setError] = useState<Record<string, string>>({});
@@ -29,15 +30,15 @@ export default function StartUpForm() {
 
             await formSchema.parseAsync(formValues);
 
-            // const result = await createPitch(prevState, formData, pitch);
+            const result = await createPitch(prevState, formData, pitch);
 
-            // if (result.status == "SUCCESS") {
-            //     toast("Your startup pitch has been created successfully");
+            if (result.status == "SUCCESS") {
+                toast("Your startup pitch has been created successfully");
 
-            //     router.push(`/startup/${result._id}`);
-            // }
+                router.push(`/startup/${result._id}`);
+            }
 
-            // return result;
+            return result;
         } catch (error) {
             if (error instanceof z.ZodError) {
                 const fieldErorrs = error.flatten().fieldErrors;
@@ -125,7 +126,7 @@ return (
             {error.pitch && <p className="text-red-500 mt-2 ml-5">{error.pitch}</p>}
         </div>
 
-        <Button disabled={isPending} className='bg-pink-700 border-[4px] text-white hover:bg-pink-600 transition border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px]'>
+        <Button disabled={isPending} className='bg-pink-700 border-[4px] cursor-pointer text-white hover:bg-pink-600 transition border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px]'>
             {isPending ? "Submiting...." : "Submit Your Pitch"}
             <Send size={6} className='ml-2'/>
         </Button>

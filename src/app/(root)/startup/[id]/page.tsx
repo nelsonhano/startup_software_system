@@ -56,8 +56,8 @@ export default async function page({ params }: { params: { id: string } }) {
                                 src={post.author?.image?.url || ""}
                                 alt="avatar"
                                 width={64}
-                                height={64}
-                                className="rounded-full drop-shadow-lg"
+                                height={34}
+                                className="rounded-full h-2/5 drop-shadow-lg"
                             />
 
                             <div className="leading-tight">
@@ -66,9 +66,11 @@ export default async function page({ params }: { params: { id: string } }) {
                             </div>
                         </Link>
 
-                        <p className="font-medium text-[16px] bg-pink-200 px-4 p-3 rounded-4xl">
-                            {post.category}
-                        </p>
+                        <div className="flex items-center justify-center h-full w-full overflow-hidden">
+                            <p className="font-medium bg-pink-300 px-3 py-1 rounded-md max-w-full truncate">
+                                {post.category}
+                            </p>
+                        </div>
                     </div>
 
                     <h3 className="text-[30px] font-bold text-black">Startup Details</h3>
