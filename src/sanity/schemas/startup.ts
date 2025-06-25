@@ -48,8 +48,9 @@ export const startup = defineType({
             validation: (Rule) => Rule.required().error("Image url i needed"),
         }),
         defineField({
-            name: "pitch",
-            type: "markdown",
+            name: 'pitch',
+            title: 'Pitch',
+            type: 'markdown',
         }),
     ],
 })

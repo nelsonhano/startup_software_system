@@ -1,6 +1,7 @@
+import React, { ReactNode } from 'react';
+
+import { SanityLive } from '@/sanity/lib/live';
 import Navbar from '@/components/Navbar'
-import { SanityLive } from '@/sanity/lib/live'
-import React, { ReactNode } from 'react'
 
 export default function layout({ children }: { children: ReactNode }) {
 return (

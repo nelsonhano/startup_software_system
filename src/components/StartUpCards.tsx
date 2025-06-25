@@ -2,7 +2,7 @@ import { EyeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { formatDate } from "@/sanity/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Author, Startup } from "../../sanity.types";
 
